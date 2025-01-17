@@ -133,7 +133,7 @@
   }
 
   outline(
-    title: "Inhalt",          // TO-DO: internationalization
+    title: "Table des matières",          // TO-DO: internationalization
     indent: auto,
   )
 
