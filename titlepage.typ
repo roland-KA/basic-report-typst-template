@@ -6,6 +6,7 @@
   author,
   affiliation,
   logo,
+  logo-placement,
   heading-font,             // the heading-font is also used for all text on the titlepage
   info-size,                // used throughout the document for "info text"
 ) = {
@@ -22,7 +23,9 @@
   // - the page uses a grid of 1.5 cm units
 
   // ----- Logo ------------------------
-  place(top + right,        // `place` so that the remaining layout is independent of the size of the logo
+  place(
+    // `place` so that the remaining layout is independent of the size of the logo
+    logo-placement,
     logo,
   )
 

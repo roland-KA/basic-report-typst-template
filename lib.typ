@@ -9,6 +9,7 @@
   author: none,
   affiliation: none,
   logo: none,
+  logo-placement: top + right,
   language: "de",
   show-outline: true,
   body,
@@ -36,6 +37,7 @@
     author,
     affiliation,
     logo,
+    logo-placement,
     heading-font,
     info-size,
   )
