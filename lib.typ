@@ -9,8 +9,11 @@
   author: none,
   affiliation: none,
   logo: none,
+  logo-placement: top + right,
   language: "de",
   show-outline: true,
+  body-font: "Vollkorn",
+  heading-font: "Ubuntu",
   body,
 ) = {
 
@@ -21,9 +24,7 @@
 
   counter(page).update(0)                       // so TOC after titlepage begins with page no 1 (roman)
 
-  let body-font = "Vollkorn"
   let body-size = 11pt
-  let heading-font = "Ubuntu"
   let info-size = 10pt                          // heading font is used in this size for kind of "information blocks"
   let label-size = 9pt                          // heading font is used in this size for different sorts of labels
   let in-outline = state("in-outline", true)    // are we inside or outside of the outline (for roman/arabic page numbers)?
@@ -36,6 +37,7 @@
     author,
     affiliation,
     logo,
+    logo-placement,
     heading-font,
     info-size,
   )
