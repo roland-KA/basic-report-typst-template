@@ -14,6 +14,9 @@
   compact-mode: false,
   heading-color: blue,
   heading-font: "Ubuntu", // recommended alternatives: "Fira Sans", "Lato", "Source Sans Pro"
+  body-size: 11pt,
+  info-size: 10pt, // heading font is used in this size for kind of "information blocks"
+  label-size: 9pt, // heading font is used in this size for different sorts of labels
   body,
 ) = {
 
@@ -23,15 +26,7 @@
   set text(lang: language)
 
 
-  let body-font = "Vollkorn"
-  let body-size = 11pt
-  // let heading-font = "Ubuntu"
-
-  // heading font is used in this size for kind of "information blocks"
-  let info-size = 10pt              
-  
-  // heading font is used in this size for different sorts of labels            
-  let label-size = 9pt                          
+  let body-font = "Vollkorn"                
   
   // are we inside or outside of the outline (for roman/arabic page numbers)?
   let in-outline = state("in-outline", if compact-mode {false} else {true})    
