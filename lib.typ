@@ -14,6 +14,7 @@
   compact-mode: false,
   heading-color: blue,
   heading-font: "Ubuntu", // recommended alternatives: "Fira Sans", "Lato", "Source Sans Pro"
+  body-font: "Vollkorn",
   datetime-fmt: "[day].[month].[year]",
   body,
 ) = {
@@ -24,7 +25,7 @@
   set text(lang: language)
 
 
-  let body-font = "Vollkorn"
+  // let body-font = "Vollkorn"
   let body-size = 11pt
   // let heading-font = "Ubuntu"
 
@@ -61,7 +62,7 @@
     size: body-size,
     // Vollkorn has a broader stroke than other fonts; in order to adapt the grey value (Grauwert)
     // of the page the font gets printed in a dark grey (instead of completely black)
-    fill: luma(50)
+    fill: if body-font == "Vollkorn" {luma(50)} else {luma(0%)}
   )
 
   set par(
