@@ -24,10 +24,7 @@
   set document(title: doc-title, author: author)
   set text(lang: language)
 
-
-  // let body-font = "Vollkorn"
   let body-size = 11pt
-  // let heading-font = "Ubuntu"
 
   // heading font is used in this size for kind of "information blocks"
   let info-size = 10pt              
