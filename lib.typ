@@ -59,7 +59,7 @@
     size: body-size,
     // Vollkorn has a broader stroke than other fonts; in order to adapt the grey value (Grauwert)
     // of the page the font gets printed in a dark grey (instead of completely black)
-    fill: if body-font == "Vollkorn" {luma(50)} else {luma(0%)}
+    fill: if body-font == "Vollkorn" {luma(50)} else {luma(0)}
   )
 
   set par(
