@@ -1,5 +1,5 @@
 
-#import "@preview/basic-report:0.4.0": *
+#import "@preview/basic-report:0.5.0": *
 
 #show: it => basic-report(
   doc-category: "Betriebsanleitung",
@@ -43,5 +43,3 @@
 === Die wichtigsten Knöpfe und Hebel
 
 #lorem(50)
-
-
