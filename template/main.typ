@@ -10,6 +10,7 @@
   // <a href="https://www.flaticon.com/free-icons/aerospace" title="aerospace icons">Aerospace icons created by gravisio - Flaticon</a>
   language: "de",
   compact-mode: true,
+  double-sided: false,
   it
 )
 

@@ -12,6 +12,7 @@
   language: "de",
   show-outline: true,
   compact-mode: false,
+  double-sided: false,
   heading-color: blue,
   heading-font: "Ubuntu", // recommended alternatives: "Fira Sans", "Lato", "Source Sans Pro"
   body-font: "Vollkorn",
@@ -73,16 +74,21 @@
   // Horizontal 1.5cm-grid = 14u: 3u left margin, 9u text, 2u right margin
   //     Idea: one-sided document; if printed on paper, the pages are often bound or stapled
   //     on the left side; so more space needed on the left. On-screen it doesn't matter.
+  //     For double-sided document the margins alternate, so the added space for binding/stapling will line up front and back.
   // Vertical 1.5cm-grid ≈ 20u: 2u top margin, 14u text, 2u botttom margin
   //     header with height ≈ 0.6cm is visually part of text block --> top margin = 3cm + 0.6cm
   set page(               // standard page with header
     paper: "a4",
-    margin: (top: 3.6cm, left: 4.5cm, right: 3cm, bottom: 3cm),
-    // the header shows the main chapter heading on the left and the page number on the right
+    margin: if double-sided {
+      (top: 3.6cm, inside: 4.5cm, outside: 3cm, bottom: 3cm)
+    } else {
+      (top: 3.6cm, left: 4.5cm, right: 3cm, bottom: 3cm)
+    },
+    // in one-sided mode, the header shows the main chapter heading on the left and the page number on the right; in double-sided it alternates
     header: context {
       if compact-mode and (counter(page).get().first() == 1) {
         none
-      } else {
+      } else if double-sided and calc.even(counter(page).get().first()) {
         grid(
           columns: (1fr, 1fr),
           align: (left, right),
@@ -98,6 +104,24 @@
               }
             }
           ),
+          grid.cell(colspan: 2, line(length: 100%, stroke: 0.5pt)),
+        )
+      } else {
+        grid(
+          columns: (1fr, 1fr),
+          align: (left, right),
+          row-gutter: 0.5em,
+          text(font: heading-font, size: label-size, 
+            number-type: "lining",
+            context {if in-outline.get() {
+                counter(page).display("i")      // roman page numbers for the TOC
+              } else {
+                counter(page).display("1")      // arabic page numbers for the rest of the document
+              }
+            }
+          ),
+          text(font: heading-font, size: label-size,
+            context {hydra(1, use-last: false, skip-starting: false)},),
           grid.cell(colspan: 2, line(length: 100%, stroke: 0.5pt)),
         )
       }
